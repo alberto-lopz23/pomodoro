@@ -121,7 +121,7 @@ export default function PerfilScreen() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: '#f8f9fa',
   },
   header: {
     alignItems: 'center',
