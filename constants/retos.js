@@ -1,0 +1,22 @@
+export const retos = [
+    'Sal a caminar por 30 minutos sin distracciones.',
+    'Habla con una persona que no conozcas durante 5 minutos.',
+    'Haz algo nuevo que nunca hayas hecho antes (puede ser algo simple).',
+    'Desconéctate de tus redes sociales durante 24 horas.',
+    'Escribe una carta de agradecimiento a alguien importante en tu vida.',
+    'Haz una lista de 5 cosas por las que te sientes orgulloso/a de ti mismo/a.',
+    'Llama a un amigo o familiar con el que no hayas hablado en mucho tiempo.',
+    'Haz una actividad creativa (dibujar, escribir, hacer manualidades, etc.).',
+    'Haz una pequeña donación a una causa que te importe (puede ser una acción simbólica).',
+    'Haz una comida saludable para ti mismo/a.',
+    'Ve a un lugar nuevo (puede ser un parque, una cafetería, etc.).',
+    'Tómate una hora para relajarte y disfrutar de tu tiempo sin preocupaciones.',
+    'Sigue una rutina de estiramientos o yoga por 20 minutos.',
+    'Lee un capítulo de un libro que te inspire o te motive.',
+    'Ayuda a alguien en algo que necesite, sin esperar nada a cambio.',
+    'Haz una meditación guiada de 10 minutos.',
+    'Haz un esfuerzo por ser amable con todos los que encuentres hoy.',
+    'Haz una lista de 3 cosas que quieras mejorar y toma una acción concreta hacia ello.',
+    'Sal de tu zona de confort al menos una vez durante el día.',
+    'Tómate un momento para desconectar y respirar profundamente durante 5 minutos.'
+]

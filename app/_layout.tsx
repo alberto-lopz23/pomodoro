@@ -2,13 +2,14 @@ import 'react-native-reanimated';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { View, StyleSheet, useColorScheme, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeScreen from '../screens/HomeScreen';
 import PerfilScreen from '../screens/PerfilScreen';
 import ToDoScreen from '../screens/ToDoScreen';
 import HabitScreen from '../screens/HabitScreen';
 import UsernameScreen from '../screens/UsernameScreen';
+import RetosScreen from '../screens/RetosScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -83,6 +84,13 @@ export default function RootLayout() {
           component={PerfilScreen}
           options={{
             title: 'Perfil',
+          }}
+        />
+        <Stack.Screen
+          name="Retos"
+          component={RetosScreen}
+          options={{
+            title: 'Retos',
           }}
         />
       </Stack.Navigator>

@@ -3,11 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footter';
 import 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Button from '@/components/Button';
+import { useNavigation } from '@react-navigation/native';
 
 {/*terminar de hacer que diga "buenas tardes con el nombre del usuario"*/}
 
 
 export default function HomeScrees() {
+  const navigation = useNavigation();
     const [user, setUser] = useState(''); // Estado para guardar el nombre de usuario
 
   // Cargar el nombre de usuario desde AsyncStorage cuando el componente se monte
@@ -46,6 +49,12 @@ export default function HomeScrees() {
             <Text style={{ color: '#777', fontSize: 30 }}>
             {user || 'Usuario'} {/* Si no hay usuario, muestra 'Usuario' como texto por defecto */}
           </Text>
+        </View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Button 
+            title="ToDo"
+            onPress={() => navigation.navigate('Retos')}
+          />
         </View>
 
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
