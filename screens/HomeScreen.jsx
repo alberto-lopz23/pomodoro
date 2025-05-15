@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import Footer from '../components/Footter';
 import 'react-native-reanimated';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Button from '@/components/Button';
+import Arbol from '../components/Arbol';
 import { useNavigation } from '@react-navigation/native';
+
 
 {/*terminar de hacer que diga "buenas tardes con el nombre del usuario"*/}
 
@@ -50,17 +52,22 @@ export default function HomeScrees() {
             {user || 'Usuario'} {/* Si no hay usuario, muestra 'Usuario' como texto por defecto */}
           </Text>
         </View>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Button 
-            title="ToDo"
-            onPress={() => navigation.navigate('Retos')}
-          />
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+           <Arbol />
         </View>
+       
+        <TouchableOpacity
+      style={styles.button}
+      onPress={() => navigation.navigate('Retos')}
+    >
+      <Image
+        source={require('../assets/images/manzano.avif')} // Ajusta la ruta a tu imagen
+        style={styles.image}
+      />
+    </TouchableOpacity>
 
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Image source={require('../assets/images/manzano.avif')} alt='manzano' style={{ width: 300, height: 300, resizeMode: 'contain' }} />
         </View>
-        </View>
+        
 
         <Footer />
         </>
@@ -69,7 +76,9 @@ export default function HomeScrees() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+      width: '100%',
+      height: '100%',
+      backgroundColor: '#fff',
     },
     header: {
         flexDirection: 'row',
@@ -79,5 +88,16 @@ const styles = StyleSheet.create({
         padding: 20,
 
     },
-
+    button: {
+        padding: 10,
+        width: 100,
+        height: 100,
+        position: 'absolute',
+        left: '70%',
+        top: '20%',
+    },
+    image: {
+        width: '100%',
+        height: '100%',
+    }
 });
