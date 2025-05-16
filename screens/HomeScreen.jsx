@@ -1,9 +1,11 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/Footter'; // Si tienes un Footer
 import InspirationalQuote from '../constants/inspiracion';
+import Button from '@/components/Button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -57,14 +59,17 @@ export default function HomeScreen() {
       </View>
 
       {/* Botón */}
-      <TouchableOpacity
-        style={styles.button}
+      <TouchableOpacity 
         onPress={() => navigation.navigate('Retos')}
+        style={styles.button}
       >
-        <Image
-          source={require('../assets/images/manzano.avif')} // Ajusta la ruta a tu imagen
-          style={styles.image}
-        />
+        <View style={styles.iconContainer}>
+          <Icon
+            name="accessibility-new"
+            size={24}
+            color="#fff"
+          />
+        </View>
       </TouchableOpacity>
 
       {/* Footer */}
@@ -112,16 +117,20 @@ const styles = StyleSheet.create({
     zIndex: 1, // Asegura que el contenido esté por encima del fondo
   },
   button: {
-    padding: 10,
-    width: 100,
-    height: 100,
     position: 'absolute',
-    left: '70%',
     top: '20%',
-    zIndex: 1, // Para asegurarse de que el botón esté sobre el fondo
+    left: '80%',
+    zIndex: 1, // Asegura que el botón esté por encima del fondo
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  image: {
-    width: '100%',
-    height: '100%',
+  iconContainer: {
+    padding: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', // Fondo morado para que el botón sea visible
+    borderRadius: 100,
+    width: 50,
+    height: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });

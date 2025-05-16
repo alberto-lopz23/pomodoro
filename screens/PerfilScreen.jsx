@@ -5,9 +5,21 @@ import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+
 export default function PerfilScreen() {
   const [imagenPerfil, setImagenPerfil] = useState(null);
   const [fotosFeed, setFotosFeed] = useState([]);
+
+  // añadimos un boton para eliminar las fotos de perfil 
+  // const eliminarFotoPerfil = async () => {
+  //   try {
+  //     await AsyncStorage.removeItem('fotosFeed');
+  //     setImagenPerfil(null);
+  //   } catch (error) {
+  //     console.error('Error al eliminar la foto de perfil:', error);
+  //   }
+
+  // }
 
   useEffect(() => {
     const cargarDatos = async () => {
@@ -102,7 +114,7 @@ export default function PerfilScreen() {
           )}
           contentContainerStyle={styles.feedGrid}
           ListEmptyComponent={
-            <Text style={styles.feedButtonText}>No hay fotos en el feed</Text>
+            <Text style={styles.textNohay}>No hay fotos en el feed</Text>
 
           }
 
@@ -111,7 +123,10 @@ export default function PerfilScreen() {
           <Text style={styles.feedButtonText}>Foto</Text>
         </TouchableOpacity>
         
-      </ScrollView>
+        {/* /* <TouchableOpacity onPress={eliminarFotoPerfil} style={styles.feedButton}>
+          <Text style={styles.feedButtonText}>Eliminar Foto</Text>
+        </TouchableOpacity> */}
+      </ScrollView> */
 
       <Footer />
     </>
@@ -163,6 +178,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     color: '#fff',
+    fontWeight: 'bold',
+  },
+  textNohay: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#09f',
     fontWeight: 'bold',
   },
   sectionTitle: {

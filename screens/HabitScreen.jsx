@@ -6,6 +6,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../components/Footter';
 
+
 // Configurar cómo se muestran las notificaciones en primer plano
 Notifications.setNotificationHandler({
   handleNotification: async () => ({

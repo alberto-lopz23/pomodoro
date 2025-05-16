@@ -73,12 +73,7 @@ export default function InspirationalQuote() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
+ 
   frase: {
     fontSize: 20,
     fontWeight: 'bold',

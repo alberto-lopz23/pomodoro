@@ -3,6 +3,7 @@ import { View, Text, TextInput, Button, FlatList, StyleSheet, TouchableOpacity }
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Footer from '../components/Footter'; // Asegúrate de tener este componente
 
+
 export default function ToDo() {
   // Estado para las tareas
   const [task, setTask] = useState('');

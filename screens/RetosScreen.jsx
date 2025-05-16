@@ -2,6 +2,8 @@ import Footer from '@/components/Footter';
 import { View, Text, StyleSheet } from 'react-native';
 import { retos } from '@/constants/retos';
 
+
+
 export default function RetoScreen() {
     
 
