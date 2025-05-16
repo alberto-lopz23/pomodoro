@@ -11,6 +11,7 @@ export default function UsernameScreen({ navigation }) {
     if (username.trim()) {
       try {
         await AsyncStorage.setItem('username', username);
+        console.log('Nombre de usuario guardado:', username); // Verificar si se guardó correctamente
         navigation.replace('Home');  // Navegar a la pantalla principal después de guardar
       } catch (error) {
         console.error('Error al guardar el nombre de usuario:', error);
@@ -19,6 +20,7 @@ export default function UsernameScreen({ navigation }) {
       alert('Por favor, ingresa un nombre de usuario');
     }
   };
+  
 
   return (
     <View style={styles.container}>
