@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
@@ -39,36 +39,50 @@ export default function HomeScreen() {
     saludo = 'Buenas noches';
   }
 
-
   return (
-    <View style={styles.container}>
+    <ImageBackground
+      source={require('../assets/images/fondo.webp')} // Imagen de fondo
+      style={styles.container} // Estilo para el contenedor
+      imageStyle={styles.backgroundImage} // Estilo para la imagen de fondo (opcional)
+    >
+      {/* Contenido sobre la imagen de fondo */}
       <View style={styles.header}>
         <Text style={styles.saludo}>{saludo}</Text>
         <Text style={styles.userName}>{user || 'Usuario'}</Text> {/* Muestra el nombre del usuario */}
       </View>
 
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+      {/* Cita inspiradora */}
+      <View style={styles.quoteContainer}>
         <InspirationalQuote />
       </View>
-      <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Retos')}
-        >
-          <Image
-            source={require('../assets/images/manzano.avif')} // Ajusta la ruta a tu imagen
-            style={styles.image}
-          />
-        </TouchableOpacity>
 
+      {/* Botón */}
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Retos')}
+      >
+        <Image
+          source={require('../assets/images/manzano.avif')} // Ajusta la ruta a tu imagen
+          style={styles.image}
+        />
+      </TouchableOpacity>
+
+      {/* Footer */}
       <Footer />
-    </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+  },
+  backgroundImage: {
+    resizeMode: 'cover', // Para asegurarnos de que cubra toda la pantalla
+    opacity: 1, // Ajusta la opacidad si lo deseas
+    width: '100%',
+    height: '100%',
+    position: 'absolute', // Asegura que la imagen de fondo esté fija y cubra toda la pantalla
   },
   header: {
     flexDirection: 'row',
@@ -77,6 +91,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     padding: 20,
     paddingTop: 40, // Añadido para mejorar el espaciado
+    zIndex: 1, // Para asegurarse de que el contenido esté sobre el fondo
   },
   saludo: {
     color: '#fff',
@@ -89,6 +104,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
   },
+  quoteContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative', // Asegura que el contenido se coloque por encima del fondo
+    zIndex: 1, // Asegura que el contenido esté por encima del fondo
+  },
   button: {
     padding: 10,
     width: 100,
@@ -96,6 +118,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: '70%',
     top: '20%',
+    zIndex: 1, // Para asegurarse de que el botón esté sobre el fondo
   },
   image: {
     width: '100%',
